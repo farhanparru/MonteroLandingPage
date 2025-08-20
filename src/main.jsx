@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import React from 'react'
 import './index.css'
 import App from './App.jsx'
+import Modal from 'react-modal';
+Modal.setAppElement('#root'); // Add this line
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

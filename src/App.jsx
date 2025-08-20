@@ -2,7 +2,7 @@ import React from 'react'
 import HeroSection from './components/HeroSection/HeroSection'
 import Features from './components/Features/Features'
 import Story from './components/Story/Story'
-import Gallery from './components/Gallery/Gallery'
+import Gallery from './components/ProductStory/Story'
 import EmailForm from './components/Subscription/EmailForm'
 import Testimonials from './components/Testimonials/Testimonials'
 import Countdown from './components/Features/Countdown'
@@ -16,7 +16,7 @@ const App = () => {
       <Features/>
       <Story/>
       <Gallery/>
-      <EmailForm/>
+  
       <Testimonials/>
       <Countdown/>
       <SocialLinks/>
