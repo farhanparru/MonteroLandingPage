@@ -1,12 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import EmailSignupModal from "../HeroSection/EmailSignupModal";
 
 export default function Countdown() {
-  // Dynamic launch date
-  const [launchDate, setLaunchDate] = useState(new Date('2025-12-31T00:00:00'));
+  // Set launch date to September 1, 2025
+  const [launchDate] = useState(new Date('2025-09-01T00:00:00'));
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
-
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalType, setModalType] = useState('');
+  const [isLaunchTime, setIsLaunchTime] = useState(false);
+  
   // Calculate time left
   function calculateTimeLeft() {
     const difference = launchDate - new Date();
@@ -21,24 +25,31 @@ export default function Countdown() {
   // Update countdown every second
   useEffect(() => {
     const interval = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const newTimeLeft = calculateTimeLeft();
+      setTimeLeft(newTimeLeft);
+      
+      // Check if we've reached launch time
+      if (
+        newTimeLeft.days === 0 &&
+        newTimeLeft.hours === 0 &&
+        newTimeLeft.minutes === 0 &&
+        newTimeLeft.seconds === 0
+      ) {
+        setIsLaunchTime(true);
+      }
     }, 1000);
 
     return () => clearInterval(interval);
   }, [launchDate]);
 
-  // Optional: Action when countdown reaches zero
-  useEffect(() => {
-    if (
-      timeLeft.days === 0 &&
-      timeLeft.hours === 0 &&
-      timeLeft.minutes === 0 &&
-      timeLeft.seconds === 0
-    ) {
-      console.log("Launch time reached!");
-      // Trigger any action here (modal, redirect, enable button)
-    }
-  }, [timeLeft]);
+  const openModal = (type) => {
+    setModalType(type);
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
   return (
     <div className="max-w-4xl mx-auto text-center px-6 py-12 relative">
@@ -54,17 +65,22 @@ export default function Countdown() {
       </motion.div>
 
       {/* Heading */}
-      <motion.h2
+      <motion.div
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, type: 'spring' }}
-        className="text-5xl md:text-6xl font-bold mb-12 tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+        className="mb-12"
       >
-        COMING SOON
-      </motion.h2>
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          MONTERO: TIMELESS ELEGANCE AWAITS
+        </h2>
+        <p className="text-xl text-gray-300">
+          Launching September 2025 • Be The First To Know
+        </p>
+      </motion.div>
 
       {/* Countdown Numbers */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12">
         {[
           { value: timeLeft.days, label: 'DAYS' },
           { value: timeLeft.hours, label: 'HOURS' },
@@ -78,7 +94,7 @@ export default function Countdown() {
             transition={{ delay: index * 0.15, type: 'spring', stiffness: 100 }}
             className="flex flex-col items-center"
           >
-            <div className="relative w-32 h-32 md:w-40 md:h-40 bg-white bg-opacity-10 backdrop-blur-md rounded-2xl shadow-xl border border-white border-opacity-20 flex items-center justify-center mb-4">
+            <div className="relative w-24 h-24 md:w-32 md:h-32 bg-white bg-opacity-10 backdrop-blur-md rounded-xl md:rounded-2xl shadow-xl border border-white border-opacity-20 flex items-center justify-center mb-3">
               <AnimatePresence mode="wait">
                 <motion.span
                   key={unit.value}
@@ -86,16 +102,16 @@ export default function Countdown() {
                   animate={{ y: 0, opacity: 1 }}
                   exit={{ y: 30, opacity: 0 }}
                   transition={{ duration: 0.5, type: 'spring' }}
-                  className="text-5xl md:text-6xl font-bold bg-gradient-to-b from-white to-gray-300 bg-clip-text text-transparent"
+                  className="text-3xl md:text-4xl font-bold bg-gradient-to-b from-white to-gray-300 bg-clip-text text-transparent"
                 >
                   {unit.value.toString().padStart(2, '0')}
                 </motion.span>
               </AnimatePresence>
-              <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
+              <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
             </div>
             <motion.span 
               whileHover={{ scale: 1.05 }}
-              className="text-lg md:text-xl font-semibold tracking-wider text-gray-300"
+              className="text-sm md:text-base font-semibold tracking-wider text-gray-300"
             >
               {unit.label}
             </motion.span>
@@ -114,18 +130,51 @@ export default function Countdown() {
           whileHover={{ x: 5 }}
           className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8"
         >
-         Discover the elegance of time with Montero – the official destination for luxury watches. Our curated collection combines precision, craftsmanship, and timeless design. Stay tuned for our official launch and be the first to explore the world of Montero – where every second counts..
+          Discover the elegance of time with Montero – where precision engineering meets exquisite craftsmanship. 
+          Our inaugural collection redefines luxury watchmaking with Swiss movements, premium materials, 
+          and timeless design. Join the exclusive waitlist for early access and special launch offers.
         </motion.p>
         
-        {/* CTA Button */}
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-        >
-          Notify Me on Launch
-        </motion.button>
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            onClick={() => openModal('notify')}
+          >
+            Notify Me on Launch
+          </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-transparent border-2 border-purple-600 text-purple-300 rounded-full text-base font-semibold shadow-lg hover:shadow-xl hover:bg-purple-600 hover:bg-opacity-10 transition-all duration-300"
+            onClick={() => openModal('reserve')}
+          >
+            Reserve Your Watch
+          </motion.button>
+        </div>
+        
+        {/* Launch Message */}
+        {isLaunchTime && (
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="mt-6 p-4 bg-green-900 bg-opacity-30 rounded-lg border border-green-500"
+          >
+            <p className="text-green-300 font-medium">
+              🎉 The Montero collection is now available! Limited pieces remaining.
+            </p>
+          </motion.div>
+        )}
       </motion.div>
+
+      {/* Email Signup Modal */}
+      <EmailSignupModal 
+        isOpen={modalIsOpen} 
+        onRequestClose={closeModal} 
+        modalType={modalType}
+      />
     </div>
   );
 }

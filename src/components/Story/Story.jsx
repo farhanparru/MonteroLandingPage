@@ -1,10 +1,72 @@
 import React, { useEffect } from 'react';
 import { gsap } from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
-import watchImage from '../../assets/images/ChatGPT Image Aug 20, 2025, 04_24_56 AM.png'; // Replace with your actual image
+import watchImage from '../../assets/images/ChatGPT Image Aug 20, 2025, 04_24_56 AM.png';
+
+// Import beach images
+import IbizaBeach from '../../assets/beaches/IbizaBeach.jpg';
+import BoraBoraBeach from '../../assets/beaches/BoraBoraBeach.jpg';
+import BaliBeach from '../../assets/beaches/BaliBeach.jpg';
+import JumeirahBeach from '../../assets/beaches/JumeirahBeach.jpg'
+import PatongBeach from '../../assets/beaches/PatongBeach.jpg'
+import MadeiraBeach from '../../assets/beaches/MadeiraBeach.jpg'
+import CubaCabanaBeach from '../../assets/beaches/CubaCabanaBeach.jpg'
+import MiamiBeach from '../../assets/beaches/MiamiBeach.jpg'
 
 // Register GSAP plugins
 gsap.registerPlugin(TextPlugin);
+
+// Beach data with Google Maps URLs and images
+const beachData = [
+  { 
+    name: 'Ibiza Beach', 
+    description: 'White Island, Spain',
+    mapsUrl: 'https://maps.app.goo.gl/RU2g9Uf6W4FtgHDS8',
+    image: IbizaBeach
+  },
+  { 
+    name: 'Jumeirah Beach', 
+    description: 'Dubai, UAE',
+    mapsUrl: 'https://maps.app.goo.gl/FBvYRpVNoL3Vjkvk6',
+    image: JumeirahBeach
+  },
+  { 
+    name: 'Patong Beach', 
+    description: 'Phuket, Thailand',
+    mapsUrl: 'https://maps.app.goo.gl/quYniGS1Gq2v4W267',
+    image: PatongBeach
+  },
+  { 
+    name: 'Bali Beach', 
+    description: 'Island of Gods, Indonesia',
+    mapsUrl: 'https://maps.app.goo.gl/qQjDvy4mW1LUCDt69',
+    image: BaliBeach
+  },
+  { 
+    name: 'Madeira Beach', 
+    description: 'Florida, USA',
+    mapsUrl: 'https://maps.app.goo.gl/8TA4QJ4uNnbs2ggC6',
+    image: MadeiraBeach
+  },
+  { 
+    name: 'Cuba Cabana Beach', 
+    description: 'Havana, Cuba',
+    mapsUrl: 'https://maps.app.goo.gl/XAFR3n68J1LkNox46',
+    image: CubaCabanaBeach
+  },
+  { 
+    name: 'Miami Beach', 
+    description: 'Florida, USA',
+    mapsUrl: 'https://maps.app.goo.gl/56bfz8CnXjEhPdbcA',
+    image: MiamiBeach
+  },
+  { 
+    name: 'Bora Bora Beach', 
+    description: 'French Polynesia',
+    mapsUrl: 'https://maps.app.goo.gl/X3D438vaoigFV8PT9',
+    image: BoraBoraBeach
+  }
+];
 
 export default function Story() {
   useEffect(() => {
@@ -48,7 +110,13 @@ export default function Story() {
       duration: 1.2,
       ease: "power3.out"
     });
+
+  
   }, []);
+
+  const openGoogleMaps = (url) => {
+    window.open(url, '_blank');
+  };
 
   return (
     <section className="py-20 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
@@ -65,6 +133,22 @@ export default function Story() {
             </h2>
             
             <div className="space-y-6">
+              {/* Product Story */}
+              <div className="bg-white/80 p-6 rounded-xl border border-montero-blue/20 mb-6">
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                  Meet Montero, a world-time watch crafted for dreamers, explorers, and lovers of the sea.
+                </p>
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                  Inspired by 8 of the world's most iconic beaches, each with its unique time zone, this watch tells more than time — it tells a story.
+                </p>
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                  From the shores of Ibiza to the sands of Bora Bora, Montero connects your wrist to the spirit of adventure.
+                </p>
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic">
+                  It's not just about where you are — it's about where you're meant to be.
+                </p>
+              </div>
+              
               <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans">
                 Montero was born from countless hours spent on beaches around the world, watching the tides change and the sun set over different horizons.
               </p>
@@ -78,7 +162,7 @@ export default function Story() {
 
             {/* Call to action */}
             <div className="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="px-8 py-3 bg-montero-blue text-black rounded-full font-mediumtransition-colors duration-300 shadow-md hover:shadow-lg">
+              <button className="px-8 py-3 bg-montero-blue text-black rounded-full font-medium transition-colors duration-300 shadow-md hover:shadow-lg">
                 Back on Kickstarter
               </button>
               <button className="px-8 py-3 border border-montero-blue text-montero-blue rounded-full font-medium hover:bg-montero-blue/10 transition-colors duration-300">
@@ -109,19 +193,58 @@ export default function Story() {
           </div>
         </div>
 
-        {/* Beach inspiration section */}
         <div className="mt-20 pt-10 border-t border-gray-200">
           <h3 className="text-2xl font-serif text-center mb-12">Inspired by 8 Iconic Beaches Around the World</h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {['Ibiza', 'Bora Bora', 'Maldives', 'Bali', 'Copacabana', 'Santorini', 'Maui', 'Seychelles'].map((beach, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 mx-auto rounded-full bg-montero-blue/10 flex items-center justify-center mb-3 group-hover:bg-montero-blue/20 transition-colors duration-300">
-                  <span className="text-montero-blue font-medium">{index + 1}</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {beachData.map((beach, index) => (
+              <div 
+                key={index} 
+                className="beach-item text-center cursor-pointer relative group"
+                onClick={() => openGoogleMaps(beach.mapsUrl)}
+              >
+                <div className="relative overflow-hidden rounded-lg shadow-md h-48 mb-4 group-hover:shadow-xl transition-all duration-300">
+                  {/* Beach image */}
+                  <img 
+                    src={beach.image} 
+                    alt={`${beach.name} Beach`}
+                    className="w-full h-full object-cover"
+                  />
+                  
+                  {/* Beach name overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-3">
+                    <p className="text-white font-medium text-sm">{beach.name}</p>
+                    <p className="text-white/80 text-xs">{beach.description}</p>
+                  </div>
+                  
+                  {/* Hover effect */}
+                  <div className="absolute inset-0 bg-montero-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  
+                  {/* Map icon */}
+                  <div className="absolute top-2 right-2 bg-white/90 p-1 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-montero-blue" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.707A1 1 0 002 4.414V17a1 1 0 001.707.707L6 16.414V5.586L3.707 3.707zM17.707 15.707A1 1 0 0018 15.586V3a1 1 0 00-1.707-.707L14 3.586v10.828l3.707 3.707z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  
+                  {/* Click instruction */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-black/70 text-white text-xs py-1 px-2 rounded-full">
+                      Click to view on Google Maps
+                    </div>
+                  </div>
                 </div>
-                <p className="font-medium text-gray-800">{beach}</p>
+                
+                <p className="font-medium text-gray-800 group-hover:text-montero-blue transition-colors duration-300">
+                  {beach.name}
+                </p>
               </div>
             ))}
+          </div>
+          
+          {/* Note about the maps */}
+          <div className="text-center mt-8 text-gray-500 text-sm">
+            <p>Click on any beach to view its location directly in Google Maps</p>
           </div>
         </div>
       </div>

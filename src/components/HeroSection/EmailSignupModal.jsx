@@ -1,21 +1,30 @@
-// components/EmailSignupModal.js
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import axios from 'axios';
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
-  const [email, setEmail] = useState('');
-  
-  const handleSubmit = (e) => {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");   
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle email submission here
-    console.log(`Submitting email for ${modalType}:`, email);
-    // You can add your API call here
-    alert(`Thank you for your interest! We'll contact you at ${email}`);
-    setEmail('');
-    onRequestClose();
+    try {
+      const res = await axios.post("http://localhost:5000/api/signup", { email });
+      setMessage(res.data.message);
+      setEmail("");
+      toast.success("Subscription successful!");
+    } catch (err) {
+      toast.error("❌ Subscription failed. Try again.",err);
+    }
   };
 
+
   return (
+    
     <Modal
       isOpen={isOpen}
       onRequestClose={onRequestClose}
@@ -23,7 +32,10 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
       overlayClassName="modal-overlay"
       contentLabel="Email Signup"
     >
+
+
       <div className="modal-container">
+        
         {/* Left Banner Section */}
         <div className="modal-banner">
           <div className="banner-content">
@@ -68,11 +80,10 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
                 <label htmlFor="email" className="input-label">Email Address</label>
                 <input
                   type="email"
-                  id="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="email-input"
-                  placeholder="your.email@example.com"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -83,6 +94,7 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
               >
                 {modalType === 'reserve' ? 'Reserve Now' : 'Notify Me'}
               </button>
+               {message && <p>{message}</p>}
             </form>
             
             <p className="privacy-text">
@@ -90,6 +102,7 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
             </p>
           </div>
         </div>
+     
       </div>
 
       {/* Add CSS for the modal */}
@@ -292,6 +305,7 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
         }
       `}</style>
     </Modal>
+    
   );
 };
 
