@@ -13,7 +13,7 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("https://montero-api.onrender.com/api/signup", { email });
+      const res = await axios.post("http://localhost:5000/api/signup", { email });
       setMessage(res.data.message);
       setEmail("");
       toast.success("Subscription successful!");
