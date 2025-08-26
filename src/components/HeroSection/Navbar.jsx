@@ -13,7 +13,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ["home", "features", "design", "specs", "story"];
+      const sections = ["home", "features", "design", "specs", "story", "faq"];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -53,7 +53,7 @@ const Navbar = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? "bg-black/95 backdrop-blur-md py-2 shadow-xl border-b border-gray-800"
+            ? "bg-gradient-to-b from-gray-900 to-black backdrop-blur-md py-2 shadow-2xl"
             : "bg-transparent py-4"
         }`}
       >
@@ -68,37 +68,48 @@ const Navbar = () => {
             <img 
               src={monteroLogo} 
               alt="Montero Logo" 
-              className="h-8 sm:h-17 md:h-17 w-auto object-contain filter brightness-0 invert"
+              className="h-16 w-auto object-contain"
             />
+           
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-4">
+          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
             {[
               { id: "features", label: "FEATURES" },
               { id: "design", label: "DESIGN" },
               { id: "specs", label: "SPECS" },
               { id: "story", label: "STORY" },
+              { id: "faq", label: "FAQ" },
             ].map((item) => (
               <motion.button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 whileHover={{ y: -2 }}
-                className={`px-5 py-3 rounded-lg text-sm font-bold transition-all duration-300 tracking-wider ${
+                className={`px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 tracking-wider relative ${
                   activeSection === item.id
-                    ? "bg-white text-black"
-                    : "text-white hover:bg-white/10"
+                    ? "text-amber-400"
+                    : "text-gray-300 hover:text-white"
                 }`}
-                style={{ fontSize: '0.95rem', letterSpacing: '0.1em' }}
+                style={{ letterSpacing: '0.1em' }}
               >
                 {item.label}
+                {activeSection === item.id && (
+                  <motion.div 
+                    className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-6 bg-amber-400 rounded-full"
+                    layoutId="activeSection"
+                  />
+                )}
               </motion.button>
             ))}
             
             <motion.button
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.4)"
+              }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-amber-500 hover:bg-amber-600 text-black font-extrabold px-6 py-3.5 rounded-lg transition-all duration-300 shadow-md uppercase tracking-wider"
+              className="ml-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg uppercase tracking-wider"
               style={{ fontSize: '0.95rem', letterSpacing: '0.1em' }}
             >
               Pre-order Now
@@ -144,7 +155,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-40 md:hidden"
+              className="fixed inset-0 bg-black/90 backdrop-blur-md z-40 md:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             
@@ -153,27 +164,46 @@ const Navbar = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 h-full w-80 max-w-full bg-black/95 backdrop-blur-lg z-50 md:hidden shadow-2xl border-l border-gray-800"
+              className="fixed top-0 right-0 h-full w-80 max-w-full bg-gradient-to-b from-gray-900 to-black backdrop-blur-lg z-50 md:hidden shadow-2xl border-l border-gray-800"
             >
-              <div className="flex flex-col h-full pt-24 pb-10 px-8">
+              <div className="flex flex-col h-full pt-20 pb-10 px-8">
+                <div className="absolute top-6 right-6">
+                  <motion.button
+                    whileTap={{ scale: 0.9 }}
+                    className="w-10 h-10 flex items-center justify-center text-white text-2xl"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    &times;
+                  </motion.button>
+                </div>
+                
                 <div className="flex-1 flex flex-col space-y-6">
                   {[
+                    { id: "home", label: "HOME" },
                     { id: "features", label: "FEATURES" },
                     { id: "design", label: "DESIGN" },
                     { id: "specs", label: "SPECIFICATIONS" },
                     { id: "story", label: "OUR STORY" },
+                    { id: "faq", label: "FAQ" },
                   ].map((item) => (
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
                       whileTap={{ scale: 0.95 }}
-                      className={`text-left text-2xl font-bold py-4 px-5 rounded-lg transition-all duration-300 uppercase tracking-wider ${
+                      className={`text-left text-xl font-bold py-4 px-5 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center ${
                         activeSection === item.id
-                          ? "bg-amber-500 text-black"
-                          : "text-white hover:bg-white/10"
+                          ? "bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 border-l-4 border-amber-500"
+                          : "text-gray-300 hover:bg-white/5"
                       }`}
                       style={{ letterSpacing: '0.1em' }}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 }}
                     >
+                      {activeSection === item.id && (
+                        <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
+                      )}
                       {item.label}
                     </motion.button>
                   ))}
@@ -182,7 +212,7 @@ const Navbar = () => {
                 <div className="pt-8 border-t border-gray-800">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-amber-500 hover:bg-amber-600 text-black font-extrabold px-5 py-5 rounded-lg text-xl mb-4 uppercase tracking-wider"
+                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-5 py-4 rounded-xl text-lg mb-4 uppercase tracking-wider shadow-lg"
                     style={{ letterSpacing: '0.1em' }}
                     onClick={() => {
                       scrollToSection("home");
@@ -192,8 +222,8 @@ const Navbar = () => {
                     Pre-order Now
                   </motion.button>
                   
-                  <p className="text-center text-gray-400 text-sm">
-                    Limited early bird pricing available
+                  <p className="text-center text-amber-300 text-sm font-medium">
+                    Limited early bird rewards available!
                   </p>
                 </div>
               </div>

@@ -44,7 +44,7 @@ const beachData = [
   },
   { 
     name: 'Madeira Beach', 
-    description: 'Florida, USA',
+    description: 'Portugal',
     mapsUrl: 'https://maps.app.goo.gl/8TA4QJ4uNnbs2ggC6',
     image: MadeiraBeach
   },
@@ -220,12 +220,7 @@ export default function Story() {
                   {/* Hover effect */}
                   <div className="absolute inset-0 bg-montero-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
                   
-                  {/* Map icon */}
-                  <div className="absolute top-2 right-2 bg-white/90 p-1 rounded-full">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-montero-blue" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M12 1.586l-4 4v12.828l4-4V1.586zM3.707 3.707A1 1 0 002 4.414V17a1 1 0 001.707.707L6 16.414V5.586L3.707 3.707zM17.707 15.707A1 1 0 0018 15.586V3a1 1 0 00-1.707-.707L14 3.586v10.828l3.707 3.707z" clipRule="evenodd" />
-                    </svg>
-                  </div>
+                
                   
                   {/* Click instruction */}
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

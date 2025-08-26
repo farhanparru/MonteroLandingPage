@@ -1,0 +1,299 @@
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Modal Container */
+.modal {
+  position: relative;
+  outline: none;
+  width: 90%;
+  max-width: 900px;
+  height: auto;
+  max-height: 90vh;
+  overflow: hidden;
+  border-radius: 16px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal-container {
+  display: flex;
+  height: 100%;
+}
+
+/* Left Banner Section */
+.modal-banner {
+  width: 45%;
+  background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%), 
+              url('https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
+  color: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.modal-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+}
+
+.banner-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.banner-text {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  line-height: 1.5;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Right Form Section */
+.modal-content {
+  width: 55%;
+  background: white;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.content-inner {
+  width: 100%;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.modal-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin: 0;
+}
+
+.close-button {
+  color: #9ca3af;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-button:hover {
+  color: #4b5563;
+}
+
+.close-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.modal-description {
+  font-size: 1.3rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.modal-form {
+  margin-top: 2rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+}
+
+.input-label {
+  display: block;
+  font-size: 1.2rem;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.email-input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  box-sizing: border-box;
+}
+
+.email-input:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
+}
+
+.submit-button {
+  width: 100%;
+  background: #f59e0b;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.submit-button:hover {
+  background: #d97706;
+}
+
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+.message-text {
+  text-align: center;
+  margin-top: 1rem;
+  color: #10b981;
+  font-weight: 500;
+}
+
+.privacy-text {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #9ca3af;
+  margin-top: 1.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .modal-container {
+    flex-direction: column;
+  }
+  
+  .modal-banner, .modal-content {
+    width: 100%;
+  }
+  
+  .modal-banner {
+    padding: 30px 20px;
+    min-height: 200px;
+  }
+  
+  .banner-title {
+    font-size: 2rem;
+  }
+  
+  .banner-text {
+    font-size: 1.2rem;
+  }
+  
+  .modal-content {
+    padding: 30px 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.8rem;
+  }
+  
+  .modal-description {
+    font-size: 1.1rem;
+  }
+  
+  .close-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+  
+  .modal-banner {
+    padding: 20px 15px;
+    min-height: 150px;
+  }
+  
+  .banner-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .banner-text {
+    font-size: 1rem;
+  }
+  
+  .modal-content {
+    padding: 20px 15px;
+  }
+  
+  .modal-header {
+    margin-bottom: 1rem;
+  }
+  
+  .modal-title {
+    font-size: 1.5rem;
+  }
+  
+  .modal-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .input-label {
+    font-size: 1rem;
+  }
+  
+  .email-input {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  
+  .submit-button {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+  
+  .privacy-text {
+    font-size: 0.85rem;
+  }
+}
