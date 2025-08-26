@@ -68,9 +68,8 @@ const Navbar = () => {
             <img 
               src={monteroLogo} 
               alt="Montero Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-10 md:h-16 lg:h-18 w-auto object-contain transition-all duration-300"
             />
-           
           </motion.div>
 
           {/* Desktop Navigation */}
