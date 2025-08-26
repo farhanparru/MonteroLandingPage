@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../../assets/images/logo.png';
+import monterologo from '../../assets/images/logo.png';
 
 const Footer = () => {
   return (
@@ -10,8 +10,11 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="space-y-6">
             <div className="flex items-center">
-              <img src={logo} alt="Montero Logo" className="h-16 sm:h-20 filter brightness-110" />
-             
+              <img 
+                src={monterologo} 
+                alt="Montero Logo" 
+                className="h-10 md:h-16 w-auto object-contain filter brightness-110 transition-all duration-300"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs">
               Precision crafted timepieces blending traditional watchmaking with contemporary design for the modern era.

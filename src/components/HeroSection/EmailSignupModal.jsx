@@ -41,7 +41,23 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
       overlayClassName="modal-overlay"
       contentLabel="Email Signup"
     >
-      <ToastContainer/>
+      {/* Responsive ToastContainer */}
+      <ToastContainer
+        position={window.innerWidth <= 768 ? "bottom-center" : "top-right"}
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        className="toast-container"
+        toastClassName="toast"
+        bodyClassName="toast-body"
+      />
+      
       <div className="modal-container">
         
         {/* Left Banner Section */}

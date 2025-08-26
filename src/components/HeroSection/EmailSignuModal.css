@@ -297,3 +297,47 @@
     font-size: 0.85rem;
   }
 }
+
+
+/* Toast Container Styles */
+.toast-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Mobile-specific toast styles */
+@media (max-width: 768px) {
+  .toast-container {
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+  }
+  
+  .toast {
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .toast-body {
+    padding: 12px 16px;
+  }
+}
+
+/* Desktop-specific toast styles */
+@media (min-width: 769px) {
+  .toast-container {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .toast {
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .toast-body {
+    padding: 10px 15px;
+  }
+}
