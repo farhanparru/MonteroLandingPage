@@ -4,6 +4,7 @@ import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import './EmailSignuModal.css'; // Import the external CSS file
+import subscriptionImage from '../../assets/images/SubscriptionBanner.jpg';
 
 const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
   const [email, setEmail] = useState("");
@@ -32,6 +33,7 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
       toast.error("Subscription failed. Try again.", err);
     }
   };
+  
 
   return (
     <Modal
@@ -61,17 +63,19 @@ const EmailSignupModal = ({ isOpen, onRequestClose, modalType }) => {
       <div className="modal-container">
         
         {/* Left Banner Section */}
-        <div className="modal-banner">
-          <div className="banner-content">
-            <h2 className="banner-title">
-              {modalType === 'reserve' ? 'Limited Edition GMT Watch' : 'Coming Soon'}
-            </h2>
-            <p className="banner-text">
-              {modalType === 'reserve' 
-                ? 'Be among the first to own this exclusive timepiece' 
-                : 'Stay updated with our launch progress and exclusive offers'
-              }
-            </p>
+        <div className="modal-banner" style={{ backgroundImage: `url(${subscriptionImage})` }}>
+          <div className="banner-overlay">
+            <div className="banner-content">
+              <h2 className="banner-title">
+                {modalType === 'reserve' ? 'Limited Edition GMT Watch' : 'Coming Soon'}
+              </h2>
+              <p className="banner-text">
+                {modalType === 'reserve' 
+                  ? 'Be among the first to own this exclusive timepiece' 
+                  : 'Stay updated with our launch progress and exclusive offers'
+                }
+              </p>
+            </div>
           </div>
         </div>
         
