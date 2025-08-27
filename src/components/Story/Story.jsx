@@ -129,43 +129,43 @@ export default function Story() {
           <div className="md:w-1/2 mb-10 md:mb-0 md:pr-10">
             <h2 className="text-4xl md:text-5xl font-light mb-8 font-serif tracking-wide section-title">
               More Than a Watch<br />
-              <span className="font-medium text-montero-blue">A Journey Through Time</span>
+              <span className="font-instrument text-montero-blue">A Journey Through Time</span>
             </h2>
             
             <div className="space-y-6">
               {/* Product Story */}
               <div className="bg-white/80 p-6 rounded-xl border border-montero-blue/20 mb-6">
-                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument italic mb-4">
                   Meet Montero, a world-time watch crafted for dreamers, explorers, and lovers of the sea.
                 </p>
-                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument italic mb-4">
                   Inspired by 8 of the world's most iconic beaches, each with its unique time zone, this watch tells more than time — it tells a story.
                 </p>
-                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic mb-4">
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument italic mb-4">
                   From the shores of Ibiza to the sands of Bora Bora, Montero connects your wrist to the spirit of adventure.
                 </p>
-                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans italic">
+                <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument italic">
                   It's not just about where you are — it's about where you're meant to be.
                 </p>
               </div>
               
-              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans">
+              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument">
                 Montero was born from countless hours spent on beaches around the world, watching the tides change and the sun set over different horizons.
               </p>
-              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans">
+              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument">
                 Each time zone in our GMT complication represents a special coastal destination, connecting you to those moments no matter where you are.
               </p>
-              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-sans">
+              <p className="story-paragraph text-lg leading-relaxed text-gray-700 font-instrument">
                 This limited edition timepiece is our tribute to the explorers, the dreamers, and those who measure time not in hours, but in experiences.
               </p>
             </div>
 
             {/* Call to action */}
             <div className="mt-10 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="px-8 py-3 bg-montero-blue text-black rounded-full font-medium transition-colors duration-300 shadow-md hover:shadow-lg">
+              <button className="px-8 py-3 bg-montero-blue text-black rounded-full font-instrument transition-colors duration-300 shadow-md hover:shadow-lg">
                 Back on Kickstarter
               </button>
-              <button className="px-8 py-3 border border-montero-blue text-montero-blue rounded-full font-medium hover:bg-montero-blue/10 transition-colors duration-300">
+              <button className="px-8 py-3 border border-montero-blue text-montero-blue rounded-full font-instrument hover:bg-montero-blue/10 transition-colors duration-300">
                 Explore Features
               </button>
             </div>
@@ -188,13 +188,13 @@ export default function Story() {
             
             {/* Floating tagline */}
             <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 bg-white/90 backdrop-blur-sm px-4 py-3 rounded-lg shadow-lg rotate-90 origin-center hidden lg:block">
-              <p className="text-sm font-medium text-montero-blue whitespace-nowrap">8 Time Zones • 8 Beaches</p>
+              <p className="text-sm font-instrument text-montero-blue whitespace-nowrap">8 Time Zones • 8 Beaches</p>
             </div>
           </div>
         </div>
 
         <div className="mt-20 pt-10 border-t border-gray-200">
-          <h3 className="text-2xl font-serif text-center mb-12">Inspired by 8 Iconic Beaches Around the World</h3>
+          <h3 className="text-2xl font-instrument text-center mb-12">Inspired by 8 Iconic Beaches Around the World</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {beachData.map((beach, index) => (

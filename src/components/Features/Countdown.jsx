@@ -61,7 +61,7 @@ export default function Countdown() {
         className="absolute inset-0 -z-10 overflow-hidden"
       >
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-64 h-64 filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
       </motion.div>
 
       {/* Heading */}
@@ -71,10 +71,10 @@ export default function Countdown() {
         transition={{ duration: 0.8, type: 'spring' }}
         className="mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          MONTERO: TIMELESS ELEGANCE AWAITS
+        <h2 className="text-4xl md:text-5xl font-sans mb-4 tracking-tight bg-gradient-to-r from-blue-600 bg-clip-text text-transparent">
+          MONTERO
         </h2>
-        <p className="text-xl text-gray-300">
+        <p className="text-xl text-gray-300 font-times">
           Launching September 2025 • Be The First To Know
         </p>
       </motion.div>
@@ -107,14 +107,11 @@ export default function Countdown() {
                   {unit.value.toString().padStart(2, '0')}
                 </motion.span>
               </AnimatePresence>
-              <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 opacity-0 group-hover:opacity-20 blur transition duration-300"></div>
+              <div className="absolute -inset-1 rounded-xl md:rounded-2xl bg-gradient-to-r from-blue-500 opacity-0 blur transition duration-300"></div>
             </div>
-            <motion.span 
-              whileHover={{ scale: 1.05 }}
-              className="text-sm md:text-base font-semibold tracking-wider text-gray-300"
-            >
+            <span className="text-sm md:text-base font-semibold tracking-wider text-gray-300 font-times">
               {unit.label}
-            </motion.span>
+            </span>
           </motion.div>
         ))}
       </div>
@@ -126,29 +123,24 @@ export default function Countdown() {
         transition={{ delay: 1.2 }}
         className="max-w-2xl mx-auto"
       >
-        <motion.p 
-          whileHover={{ x: 5 }}
-          className="text-lg md:text-xl text-gray-400 leading-relaxed mb-8"
-        >
+        <p className="font-times md:text-xl text-gray-400 leading-relaxed mb-8">
           Discover the elegance of time with Montero – where precision engineering meets exquisite craftsmanship. 
           Our inaugural collection redefines luxury watchmaking with Swiss movements, premium materials, 
           and timeless design. Join the exclusive waitlist for early access and special launch offers.
-        </motion.p>
+        </p>
         
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <motion.button
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-base font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 text-white rounded-full text-base font-semibold shadow-lg"
             onClick={() => openModal('notify')}
           >
             Notify Me on Launch
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-transparent border-2 border-purple-600 text-purple-300 rounded-full text-base font-semibold shadow-lg hover:shadow-xl hover:bg-purple-600 hover:bg-opacity-10 transition-all duration-300"
+            className="px-6 py-3 bg-transparent border-2 from-blue-600 rounded-full text-base font-semibold shadow-lg"
             onClick={() => openModal('reserve')}
           >
             Reserve Your Watch
@@ -162,7 +154,7 @@ export default function Countdown() {
             animate={{ opacity: 1, scale: 1 }}
             className="mt-6 p-4 bg-green-900 bg-opacity-30 rounded-lg border border-green-500"
           >
-            <p className="text-green-300 font-medium">
+            <p className="text-green-300 font-medium font-times">
               🎉 The Montero collection is now available! Limited pieces remaining.
             </p>
           </motion.div>
@@ -175,6 +167,9 @@ export default function Countdown() {
         onRequestClose={closeModal} 
         modalType={modalType}
       />
+
+
+    
     </div>
   );
 }

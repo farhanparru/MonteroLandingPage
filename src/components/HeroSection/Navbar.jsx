@@ -58,22 +58,22 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo with responsive sizing */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center cursor-pointer"
+            className="flex items-center cursor-pointer ml-2 md:ml-6"
             onClick={() => scrollToSection("home")}
           >
             <img 
               src={monteroLogo} 
-              alt="Montero Logo" 
-              className="h-10 md:h-16 lg:h-18 w-auto object-contain transition-all duration-300"
+              alt="Montero Luxury Watches" 
+              className="h-12 md:h-16 lg:h-20 w-auto object-contain transition-all duration-300"
             />
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <div className="hidden md:flex items-center space-x-2 lg:space-x-4">
             {[
               { id: "features", label: "FEATURES" },
               { id: "design", label: "DESIGN" },
@@ -85,17 +85,20 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 whileHover={{ y: -2 }}
-                className={`px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300 tracking-wider relative ${
+                className={`px-4 py-2 rounded-lg font-bold transition-all duration-300 tracking-wider relative ${
                   activeSection === item.id
                     ? "text-amber-400"
-                    : "text-gray-300 hover:text-white"
+                    : "text-gray-200 hover:text-white"
                 }`}
-                style={{ letterSpacing: '0.1em' }}
+                style={{ 
+                  letterSpacing: '0.15em',
+                  fontSize: '0.95rem'
+                }}
               >
                 {item.label}
                 {activeSection === item.id && (
                   <motion.div 
-                    className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-6 bg-amber-400 rounded-full"
+                    className="absolute bottom-1 left-1/2 transform -translate-x-1/2 h-0.5 w-8 bg-amber-400 rounded-full"
                     layoutId="activeSection"
                   />
                 )}
@@ -105,10 +108,10 @@ const Navbar = () => {
             <motion.button
               whileHover={{ 
                 scale: 1.05,
-                boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.4)"
+                boxShadow: "0 10px 25px -5px rgba(180, 83, 9, 0.5)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="ml-4 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg uppercase tracking-wider"
+              className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg uppercase tracking-wider"
               style={{ fontSize: '0.95rem', letterSpacing: '0.1em' }}
             >
               Pre-order Now
@@ -118,7 +121,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.9 }}
-            className="md:hidden flex flex-col items-center justify-center w-10 h-10 relative z-60"
+            className="md:hidden flex flex-col items-center justify-center w-10 h-10 relative z-60 mr-2"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -165,11 +168,11 @@ const Navbar = () => {
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
               className="fixed top-0 right-0 h-full w-80 max-w-full bg-gradient-to-b from-gray-900 to-black backdrop-blur-lg z-50 md:hidden shadow-2xl border-l border-gray-800"
             >
-              <div className="flex flex-col h-full pt-20 pb-10 px-8">
+              <div className="flex flex-col h-full pt-24 pb-10 px-6">
                 <div className="absolute top-6 right-6">
                   <motion.button
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 flex items-center justify-center text-white text-2xl"
+                    className="w-10 h-10 flex items-center justify-center text-white text-3xl"
                     onClick={() => setIsMobileMenuOpen(false)}
                     aria-label="Close menu"
                   >
@@ -177,7 +180,7 @@ const Navbar = () => {
                   </motion.button>
                 </div>
                 
-                <div className="flex-1 flex flex-col space-y-6">
+                <div className="flex-1 flex flex-col space-y-4">
                   {[
                     { id: "home", label: "HOME" },
                     { id: "features", label: "FEATURES" },
@@ -185,20 +188,20 @@ const Navbar = () => {
                     { id: "specs", label: "SPECIFICATIONS" },
                     { id: "story", label: "OUR STORY" },
                     { id: "faq", label: "FAQ" },
-                  ].map((item) => (
+                  ].map((item, index) => (
                     <motion.button
                       key={item.id}
                       onClick={() => scrollToSection(item.id)}
                       whileTap={{ scale: 0.95 }}
                       className={`text-left text-xl font-bold py-4 px-5 rounded-xl transition-all duration-300 uppercase tracking-wider flex items-center ${
                         activeSection === item.id
-                          ? "bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-400 border-l-4 border-amber-500"
+                          ? "bg-gradient-to-r from-amber-500/20 to-amber-700/20 text-amber-400 border-l-4 border-amber-500"
                           : "text-gray-300 hover:bg-white/5"
                       }`}
                       style={{ letterSpacing: '0.1em' }}
                       initial={{ opacity: 0, x: 50 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.1 }}
+                      transition={{ delay: index * 0.1 }}
                     >
                       {activeSection === item.id && (
                         <span className="w-2 h-2 bg-amber-500 rounded-full mr-3"></span>
@@ -211,7 +214,7 @@ const Navbar = () => {
                 <div className="pt-8 border-t border-gray-800">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold px-5 py-4 rounded-xl text-lg mb-4 uppercase tracking-wider shadow-lg"
+                    className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 text-white font-bold px-5 py-4 rounded-xl text-lg mb-4 uppercase tracking-wider shadow-lg"
                     style={{ letterSpacing: '0.1em' }}
                     onClick={() => {
                       scrollToSection("home");

@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import LoadingScreen from "./components/Loading/LoadingScreen";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Technology from "./components/HeroSection/Technology";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +22,7 @@ const App = () => {
       
       // After loading finishes, show content after a brief transition
       setTimeout(() => setShowContent(true), 500);
-    }, 5000); // Simulate 3 seconds loading
+    }, 4000); // Simulate 3 seconds loading
 
     return () => clearTimeout(timer);
   }, []);
@@ -41,6 +42,7 @@ const App = () => {
                   <Story />
                   <Features />
                   <Testimonials />
+                  <Technology/>
                   <Countdown />
                 </>
               }
