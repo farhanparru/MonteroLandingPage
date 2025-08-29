@@ -56,50 +56,33 @@ export default function HeroSection() {
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center relative z-10 py-20 md:py-0 max-w-6xl">
           <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-            {/* Headline - Fixed to exactly two lines */}
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
+            {/* Headline Section - Mobile Responsive */}
+            <motion.div 
+              className="mb-6 md:mb-8"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="font-bold mb-4 leading-tight tracking-tight font-instrument"
-              style={{
-                fontSize: 'clamp(2rem, 5vw, 3.5rem)',
-                lineHeight: '1.1'
-              }}
             >
-              <span className="block">A Watch That Connects</span>
-              <span className="block">You to the World</span>
-            </motion.h1>
+              <h1 className="text-[48px] sm:text-4xl md:text-4xl lg:text-5xl font-bold  leading-tight mb-2 md:mb-4" >
+                <span className="block">A Watch That Connects</span>
+                <span className="block">You to the World</span>
+              </h1>
+            
+            </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="font-bold mb-6 text-gray-200 font-times"
-              style={{
-                fontSize: 'clamp(1.25rem, 3vw, 1.75rem)',
-                lineHeight: '1.2'
-              }}
+              className=" mb-6 text-gray-300 font-serif font-semibold max-w-xl mx-auto md:mx-0 text-xl sm:text-base"
+          
             >
-              Inspired by iconic beaches, designed for the bold traveler
+              Inspired by iconic beaches, designed for the bold traveler. <br className="hidden sm:block" />
+              Built for those who value precision, durability, and timeless
+              beauty.
             </motion.h2>
 
-            {/* Paragraph */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.8 }}
-              className="mb-8 md:mb-10 max-w-md mx-auto md:mx-0 text-gray-300 font-bold font-times"
-              style={{
-                fontSize: 'clamp(1rem, 2vw, 1.25rem)',
-                lineHeight: '1.4'
-              }}
-            >
-              Experience the world through our beach-inspired GMT watch that
-              captures the rhythm of the tides
-            </motion.p>
-
-            {/* Buttons */}
+            {/* Buttons with responsive text */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -108,16 +91,12 @@ export default function HeroSection() {
             >
               <button
                 onClick={() => openModal("reserve")}
-                className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 text-white font-bold px-6 py-3 rounded-lg text-base uppercase tracking-wider shadow-lg font-times"
+                className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 
+               text-white font-bold px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base uppercase tracking-wider shadow-lg 
+               font-times border border-white transition duration-300"
               >
-                Reserve Your Spot on Kickstarter
-              </button>
-
-              <button
-                onClick={() => openModal("notify")}
-                className="border-2 border-white hover:bg-white/10 font-bold px-6 py-3 rounded-lg transition-all duration-300 font-times"
-              >
-                Be the First to Know
+                <span className="sm:hidden">Reserve Now</span>
+                <span className="hidden sm:inline">Reserve Your Spot on Kickstarter</span>
               </button>
             </motion.div>
           </div>
@@ -130,5 +109,5 @@ export default function HeroSection() {
         modalType={modalType}
       />
     </>
-  )
+  );
 }

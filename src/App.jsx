@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import HeroSection from "./components/HeroSection/HeroSection";
-import Story from "./components/Story/Story";
+import Story from "./components/Story/BeachesWorld";
 import Features from "./components/Features/Features";
 import Testimonials from "./components/Testimonials/Testimonials";
 import Countdown from "./components/Features/Countdown";
@@ -10,6 +10,8 @@ import LoadingScreen from "./components/Loading/LoadingScreen";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Technology from "./components/HeroSection/Technology";
+import FrequentlyAskedQuestions from "./components/Features/Frequentlyaskedquestions";
+import ProductStory from "./components/Story/ProductStory";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -39,8 +41,10 @@ const App = () => {
               element={
                 <>
                   <HeroSection />
+                  <ProductStory/>
                   <Story />
                   <Features />
+                  <FrequentlyAskedQuestions/>
                   <Testimonials />
                   <Technology/>
                   <Countdown />

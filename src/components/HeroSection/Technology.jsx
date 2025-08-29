@@ -16,7 +16,7 @@ const Technology = () => {
 
       {/* Title */}
       <h1
-        className="font-[Instrument_Sans] font-semibold text-[48px] leading-[100%] tracking-normal text-black mb-4"
+        className="font-[Inter]  font-semibold text-[48px] leading-[100%] tracking-normal text-black mb-4"
       >
         Made with swiss technology
       </h1>

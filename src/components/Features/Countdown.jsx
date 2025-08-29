@@ -71,10 +71,10 @@ export default function Countdown() {
         transition={{ duration: 0.8, type: 'spring' }}
         className="mb-12"
       >
-        <h2 className="text-4xl md:text-5xl font-sans mb-4 tracking-tight bg-gradient-to-r from-blue-600 bg-clip-text text-transparent">
+        <h2 className="text-4xl md:text-5xl font-[Inter]  mb-4 tracking-tight bg-gradient-to-r from-blue-600 bg-clip-text text-transparent">
           MONTERO
         </h2>
-        <p className="text-xl text-gray-300 font-times">
+        <p className="text-xl text-gray-300 font-[Inter] ">
           Launching September 2025 • Be The First To Know
         </p>
       </motion.div>

@@ -13,7 +13,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 50);
       
       // Update active section based on scroll position
-      const sections = ["home", "features", "design", "specs", "story", "faq"];
+      const sections = ["home", "features", "design", "specs", "story"];
       const scrollPosition = window.scrollY + 100;
       
       for (const section of sections) {
@@ -79,7 +79,7 @@ const Navbar = () => {
               { id: "design", label: "DESIGN" },
               { id: "specs", label: "SPECS" },
               { id: "story", label: "STORY" },
-              { id: "faq", label: "FAQ" },
+      
             ].map((item) => (
               <motion.button
                 key={item.id}
@@ -111,8 +111,9 @@ const Navbar = () => {
                 boxShadow: "0 10px 25px -5px rgba(180, 83, 9, 0.5)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 text-white font-bold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg uppercase tracking-wider"
-              style={{ fontSize: '0.95rem', letterSpacing: '0.1em' }}
+              className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 
+               text-white font-bold px-6 py-3 rounded-lg text-base uppercase tracking-wider shadow-lg 
+               font-times border border-white transition duration-300"
             >
               Pre-order Now
             </motion.button>
@@ -214,8 +215,9 @@ const Navbar = () => {
                 <div className="pt-8 border-t border-gray-800">
                   <motion.button
                     whileTap={{ scale: 0.95 }}
-                    className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 text-white font-bold px-5 py-4 rounded-xl text-lg mb-4 uppercase tracking-wider shadow-lg"
-                    style={{ letterSpacing: '0.1em' }}
+                    className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 
+               text-white font-bold px-6 py-3 rounded-lg text-base uppercase tracking-wider shadow-lg 
+               font-times border border-white transition duration-300"
                     onClick={() => {
                       scrollToSection("home");
                       setIsMobileMenuOpen(false);
@@ -224,9 +226,7 @@ const Navbar = () => {
                     Pre-order Now
                   </motion.button>
                   
-                  <p className="text-center text-amber-300 text-sm font-medium">
-                    Limited early bird rewards available!
-                  </p>
+                
                 </div>
               </div>
             </motion.div>

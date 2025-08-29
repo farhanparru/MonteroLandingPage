@@ -51,10 +51,10 @@ export default function Testimonials() {
       <div className="container mx-auto px-6">
         <div className="text-center mb-12">
         
-          <h2 className="text-3xl md:text-4xl font-light mt-4 font-serif tracking-wide font-instrument">
+          <h2 className="text-3xl md:text-4xl font-light mt-4 font-[Inter] tracking-wide ">
             Trusted by Collectors Worldwide
           </h2>
-          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto font-instrument">
+          <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto font-[Inter] ">
             Hear from our valued customers who've experienced the luxury, service, and trust that define our brand.
           </p>
         </div>
