@@ -56,26 +56,24 @@ export default function HeroSection() {
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center relative z-10 py-20 md:py-0 max-w-6xl">
           <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-            {/* Headline Section - Mobile Responsive */}
+            {/* Headline Section - Clear and Readable */}
             <motion.div 
               className="mb-6 md:mb-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-[48px] sm:text-4xl md:text-4xl lg:text-5xl font-bold  leading-tight mb-2 md:mb-4" >
-                <span className="block">A Watch That Connects</span>
-                <span className="block">You to the World</span>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight mb-2 md:mb-4" >
+                <span className="block text-white drop-shadow-md">A Watch That</span>
+                <span className="block text-white drop-shadow-md">Connects You</span>
               </h1>
-            
             </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className=" mb-6 text-gray-300 font-serif font-semibold max-w-xl mx-auto md:mx-0 text-xl sm:text-base"
-          
+              className="mb-6 text-gray-200 font-light max-w-xl mx-auto md:mx-0 text-lg sm:text-xl md:text-2xl"
             >
               Inspired by iconic beaches, designed for the bold traveler. <br className="hidden sm:block" />
               Built for those who value precision, durability, and timeless
@@ -93,7 +91,7 @@ export default function HeroSection() {
                 onClick={() => openModal("reserve")}
                 className="bg-gradient-to-r from-green-800 to-emerald-800 hover:from-green-700 hover:to-emerald-800 
                text-white font-bold px-4 sm:px-6 py-3 rounded-lg text-sm sm:text-base uppercase tracking-wider shadow-lg 
-               font-times border border-white transition duration-300"
+               border border-white transition duration-300"
               >
                 <span className="sm:hidden">Reserve Now</span>
                 <span className="hidden sm:inline">Reserve Your Spot on Kickstarter</span>
